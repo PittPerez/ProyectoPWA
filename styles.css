@@ -1,0 +1,202 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2 rem;
+    min-height: 100%;
+    background-color: #5b455e;
+}
+
+.grid-container > * {
+    box-shadow: -1px 1px 7px 0px rgba(0,0,0,.75);
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    gap:5px;
+    /* Definir la estructura */
+    grid-template-areas:
+        /* Nombrar las áreas */
+        "buscar"
+        "sidebar"
+        "main"
+        "noticias"
+        "footer";
+}
+
+/* BUSCAR */
+.buscar{
+    grid-area: buscar;
+    background-color: rgb(197, 178, 178);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinea los elementos a los extremos */
+    padding: 0 20px; /* Agrega un espacio de padding para separar el contenido del borde */
+}
+.buscar img{
+    width: 6%;
+    margin-left: 10px;
+}
+
+/* SIDEBAR */
+.sidebar{
+    grid-area: sidebar;
+    background-color: #56455f;
+}
+.sidebar h3{
+    color: white;
+}
+.sidebar img {
+    width:100%;
+}
+.sidebar p{
+    color: white;
+}
+
+/* MAIN */
+.main{
+    grid-area: main;
+    background-color: rgb(197, 178, 178);
+}
+.main h1{
+    color: #333;
+}
+
+/* NOTICIAS */
+.noticias{
+    grid-area: noticias;
+    background-color: rgb(197, 178, 178);
+}
+.noticias h1{
+    color: #333;
+}
+.noticias p{
+    text-align: justify;
+    font-size: 18px;
+}
+
+/* FOOTER */
+.footer{
+    grid-area: footer;
+    background-color: #56455f;
+}
+footer p {
+    color: white;
+}
+
+/*RENDERIZADO CSS*/
+@media(min-width: 300px){
+    .grid-container{
+        grid-template: 
+        /*Nombrar las areas*/
+        "buscar buscar" 90px
+        "sidebar sidebar" auto
+        "main main" 60px
+        "noticias noticias" auto
+        "footer footer" 40px
+        / 1fr 1fr auto
+        ;
+    }
+}
+
+@media(min-width: 700px){
+    .grid-container{
+        grid-template: 
+        /*Nombrar las areas*/
+        "buscar buscar buscar" 90px
+        "sidebar main main" 60px
+        "sidebar noticias noticias" auto 
+        "footer footer footer" 40px
+        /200px auto 250px
+        ;
+    }
+}
+
+/* CSS extre */
+.logo {
+    width: 50px; /* Ajusta el tamaño según lo necesites */
+    height: auto; /* Para mantener la proporción */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+}
+
+.nombre-pagina {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 2.5rem; /* Tamaño de fuente */
+    font-weight: bold; /* Peso de la fuente */
+    color: #333; /* Color del texto */
+    /* Otros estilos que desees aplicar */
+}
+
+.menu-desplegable {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.boton-desplegable {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.linea {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px 0;
+}
+
+.menu-contenido {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: calc(100% + 5px); /* Posiciona el menú abajo del botón */
+    right: 0; /* Posiciona el menú a la izquierda del botón */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+
+.menu-contenido button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    border: none;
+    background-color: transparent; /* Fondo transparente */
+    color: #4b2c5f; /* Color de texto blanco */
+    font-family: 'Gothic', sans-serif; /* Fuente tipográfica gótica */
+    font-size: 16px;
+    border-radius: 20px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-contenido button:hover {
+    background-color: rgba(0, 0, 0, 0.582); /* Fondo semitransparente al pasar el ratón */
+}
+
+.menu-desplegable:hover .menu-contenido {
+    display: block;
+}
+
+.menu-contenido button::before {
+    content: "\1F47B"; /* Icono Unicode de una bruja */
+    font-family: 'Arial', sans-serif; /* Fuente tipográfica para el icono */
+    margin-right: 5px;
+}
